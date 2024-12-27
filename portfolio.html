@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animation styles */
+    .fade-in {
+      animation: fadeIn 1.5s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-yellow-600 text-white py-6 text-center fade-in">
+    <h1 class="text-4xl font-bold">Welcome to My Portfolio</h1>
+    <p class="mt-2 text-lg">Showcasing my work and skills</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="py-10 px-6 fade-in">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-gray-800">About Me</h2>
+      <div class="mt-6 flex justify-center">
+        <img src="D:\Mern project/IMG.png" alt="Your Image" class="w-40 h-40 rounded-full shadow-md hover-scale">
+    </div>
+    <h1 class="text-3xl font-semibold text-gray-800">KESHAV BHARTI</h1>
+      <p class="mt-4 text-gray-600">I am a passionate developer with expertise in creating modern, responsive web applications. My goal is to deliver user-centric solutions that are both efficient and visually appealing.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gray-200 py-10 px-6 fade-in">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-semibold text-gray-800 text-center">My Projects</h2>
+      <div id="projects-container" class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Projects will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-10 px-6 fade-in">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-gray-800">Contact Me</h2>
+      <p class="mt-4 text-gray-600">Feel free to reach out for collaboration or inquiries.</p>
+      <div class="mt-6">
+        <a href="mailto:your.email@example.com" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Send an Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4 text-center fade-in">
+    <p>&copy; 2024 keshav bharti. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Data for projects
+    const projects = [
+      {
+        name: "Project One",
+        description: "A description of project one.",
+        demoLink: "#",
+        repoLink: "#"
+      },
+      {
+        name: "Project Two",
+        description: "A description of project two.",
+        demoLink: "#",
+        repoLink: "#"
+      },
+      {
+        name: "Project Three",
+        description: "A description of project three.",
+        demoLink: "#",
+        repoLink: "#"
+      }
+    ];
+
+    // Dynamically populate projects section
+    const projectsContainer = document.getElementById('projects-container');
+
+    projects.forEach(project => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'bg-white shadow-md rounded p-4 fade-in hover-scale';
+      projectCard.innerHTML = `
+        <h3 class="text-xl font-semibold text-gray-800">${project.name}</h3>
+        <p class="mt-2 text-gray-600">${project.description}</p>
+        <div class="mt-4">
+          <a href="${project.demoLink}" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
+          <span class="mx-2">|</span>
+          <a href="${project.repoLink}" target="_blank" class="text-blue-600 hover:underline">GitHub Repo</a>
+        </div>
+      `;
+      projectsContainer.appendChild(projectCard);
+    });
+  </script>
+</body>
+</html>
